@@ -2,7 +2,7 @@ name: Auto Merge Release PR
 
 on:
   schedule:
-    - cron: '*/3 * * * *' # every 3 minutes
+    - cron: '*/10 * * * *' # every 3 minutes
 
 jobs:
   auto-merge:
