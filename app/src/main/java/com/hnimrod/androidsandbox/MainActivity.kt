@@ -1,6 +1,7 @@
 package com.hnimrod.androidsandbox
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -33,5 +34,8 @@ class MainActivity : AppCompatActivity() {
             )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        var s: String? = "abc"
+        Log.d("MainActivity", "s = ${s!!}")
     }
 }
