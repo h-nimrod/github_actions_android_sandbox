@@ -13,7 +13,7 @@ jobs:
     - name: Auto merge PR
       id: automerge
       run: |
-        PR_NUMBER=$(gh pr list --base main --head "release/v*" --json number | jq '.[0].number')
+        PR_NUMBER=$(gh pr list --base main --json number | jq '.[0].number')
         if [ "$PR_NUMBER" != "null" ]; then
           gh pr merge $PR_NUMBER --merge
           echo "Merged PR #$PR_NUMBER"
