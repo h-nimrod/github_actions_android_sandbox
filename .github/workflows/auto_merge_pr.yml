@@ -2,17 +2,14 @@ name: Auto Merge Release PR
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # every 3 minutes
+    - cron: '*/5 * * * *' # every 3 minutes
 
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.automerge.outputs.version }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
     - name: Auto merge PR
       id: automerge
       run: |
