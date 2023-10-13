@@ -60,6 +60,7 @@ jobs:
     needs:
       - ktlint
       - androidLint
+      - detekt
     steps:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
