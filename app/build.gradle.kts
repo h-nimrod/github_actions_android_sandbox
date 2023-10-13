@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("io.gitlab.arturbosch.detekt")
 }
 
 android {
@@ -87,4 +88,13 @@ val ktlintFormat by tasks.creating(JavaExec::class) {
     classpath = ktlint
     mainClass.set("com.pinterest.ktlint.Main")
     args = listOf("-F", "src/**/*.kt")
+}
+
+detekt {
+    buildUponDefaultConfig = true // preconfigure defaults
+    allRules = false // activate all available (even unstable) rules.
+    config.setFrom("$projectDir/config/detekt.yml") // point to your custom config defining rules to run, overwriting default behavior
+    baseline = file("$projectDir/config/baseline.xml") // a way of suppressing issues before introducing detekt
+    ignoreFailures = true
+    parallel = true
 }
